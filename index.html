@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // create function to randomly return rock, paper, scissors
+        function getComputerChoice(min,max) {
+            // generate random number between 1 and 3 inclusive
+            return Math.floor(Math.random() * (max - min +1) + min);
+        }
+            const randomNumber = getComputerChoice(1,3);
+    
+        // console.log(randomNumber);
+
+            // Convert random generated number to text
+            function convertNum(randomNumber) {
+                if (randomNumber === 1) {
+                    return "rock";
+                }
+                else if (randomNumber === 2) {
+                    return "paper";
+                }
+                else {
+                    return "scissors";
+                }
+        }
+
+        // Test result of conversion of number to text
+        console.log(convertNum(randomNumber));
+
+        // create prompt for a user to play a round of game
+        let selection = prompt("Rock, Paper, Scissors - Make a Selection:");
+
+        // if (selection === "rock") {
+        //     alert("Correct!");
+        // }
+        // else if (selection === "paper") {
+        //     alert("Kinda");
+        // }
+        // else {
+        //     alert("Nope!");
+        // }
+
+          if (selection === convertNum(randomNumber)) {
+                alert("Match, try again!");
+            }
+            else if (selection === "paper" && convertNum(randomNumber) === "rock") {
+                alert("Paper beats Rock - You Win!");
+            }
+            else if (selection === "rock" && convertNum(randomNumber) === "scissors") {
+                alert("Rock beats Scissors - You Win!");
+            }
+            else if (selection === "scissors" && convertNum(randomNumber) === "paper") {
+                alert("Scissors beats Paper - You Win!");
+            }
+            else {
+                alert("You lose!");
+            }
+
+
+
+            
+
+            // create variable for user input (case insensitive)
+            // const playerSelection();
+
+       
+
+
+
+        // function playround(playerSelection, ComputerSelection) {
+        //     // enter code
+        //     getComputerChoice = Math.random()
+        // }
+        // const playerSelection = "rock";
+        // const ComputerSelection = getComputerChoice();
+        // console.log(playround(playerSelection, ComputerSelection));
+
+        // prompt("Make a Selection:")
+        // console.log("hello, world!");
+        // function getComputerChoice()
+
+        
+    </script>
+</body>
+</html>
+
+// generate random output of either 'rock, paper, or scissors' -- XX
+
+// create prompt for a user to play a round of game
+// create variable for user input (case insensitive) -- XX
+// create variable for computer output -- XX
+// create prompt for user of input of either 'rock, paper, or scissors'
+// write branching argument to determine winner of game
+// return output string with outcome of round
+
+// nest previous function within new function game() to play five rounds
+// declare winner from result of five rounds
