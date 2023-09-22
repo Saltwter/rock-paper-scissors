@@ -11,12 +11,13 @@
         // declare global variables for winner of game
         let playWins = 0;
         let compWins = 0;
+        let computerSelection;
 
-        // create for loop to play game five times        
-        for (let i = 0; i < 5; i++) { 
+        //write function with game to call            
+        function game() {
 
-            //write function with game to call
-            function game() {
+            // create for loop to play game five times        
+            for (let i = 0; i < 5; i++) { 
 
                 // create function to randomly return rock, paper, scissors
                 function getComputerChoice(min,max) {
@@ -37,43 +38,65 @@
                         return "scissors";
                     }
                 }  
+
                 // create prompt for a user to play a round of game
                 let playerSelection = prompt("Rock, Paper, Scissors - Make a Selection:");
+                
+                // declare variables for player and computer selections
+                const pS = playerSelection.toLowerCase();
+                const computerSelection = convertNum(randomNumber);
 
                 // write branching argument to determine winner of game
-                if (playerSelection == "") {
-                    alert("Cancelled");
-                    i=i+5;
-                }
-                else if (playerSelection.toLowerCase() === convertNum(randomNumber)) {
+                if (playerSelection !== null && pS === computerSelection) {
                     alert("Match, try again!");
                     i = i-1;
                 }
-                else if (playerSelection.toLowerCase() === "paper" && convertNum(randomNumber) === "rock") {
+                else if (pS === "rock" && computerSelection === "paper") {
+                    alert("You Lose!");
+                    compWins++;
+                }
+                else if (pS === "scissors" && computerSelection === "rock") {
+                    alert("You Lose!");
+                    compWins++;
+                }
+                else if (pS === "paper" && computerSelection === "scissors") {
+                    alert("You Lose!");
+                    compWins++;
+                }                
+                else if (pS === "paper" && computerSelection === "rock") {
                     alert("Paper beats Rock - You Win!");
                     playWins++;
                 }
-                else if (playerSelection.toLowerCase() === "rock" && convertNum(randomNumber) === "scissors") {
+                else if (pS === "rock" && computerSelection === "scissors") {
                     alert("Rock beats Scissors - You Win!");
                     playWins++;
                 }
-                else if (playerSelection.toLowerCase() === "scissors" && convertNum(randomNumber) === "paper") {
+                else if (pS === "scissors" && computerSelection === "paper") {
                     alert("Scissors beats Paper - You Win!");
                     playWins++;
                 }
+                else if (playerSelection == "" || " " || null) {
+                    alert("No entry!");
+                    i = i - 1;
+                }
                 else {
-                    alert("You lose!");
-                    compWins++;
-                }            
-            
+                    alert("No entry!")
+                }
+
                 // keep track of who wins in console
                 console.log(playWins, compWins);
             }
-
-            //call function to play game
-            game();
         }
+    
+        //call function to play round    
+        function playRound(playerSelection, computerSelection) {
+        }
+        
+        playRound();
 
+        //call function to play game
+        game();
+        
         // determine winner of series and print alert with results
         if (playWins >= 3) {
             alert("Player Wins!");
@@ -84,18 +107,7 @@
         else {
             alert("Game Cancelled");
         }        
+
     </script>
 </body>
 </html>
-
-// generate random output of either 'rock, paper, or scissors' -- XX
-
-// create prompt for a user to play a round of game
-// create variable for user input (case insensitive) -- XX
-// create variable for computer output -- XX
-// create prompt for user of input of either 'rock, paper, or scissors' -- XX
-// write branching argument to determine winner of game -- XX
-// return output string with outcome of round -- XX
-
-// nest previous function within new function game() to play five rounds
-// declare winner from result of five rounds
